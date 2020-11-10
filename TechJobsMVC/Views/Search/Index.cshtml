@@ -25,9 +25,27 @@
     </form>
 
     <hr />
+    @if(ViewBag.jobs != null)
+    {
+        <table class="job-listing">
 
-    @{
-        //TODO #4: Loop over the search results to display all job fields.
+            @foreach (Job job in ViewBag.jobs)
+            {
+                <tr>
+                    <td>
+                        ID: @job.Id<br />
+                        Name: @job.Name<br />
+                        Employer: @job.Employer.ToString()<br />
+                        Location: @job.Location.ToString()<br />
+                        Position Type: @job.PositionType.ToString()<br />
+                        Skill: @job.CoreCompetency.ToString()
+                    </td>
+                </tr>
+            }
+
+        </table>
     }
+    
+    
 
 </div>
